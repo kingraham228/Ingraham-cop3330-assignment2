@@ -83,9 +83,8 @@ public class PaymentCalculator {
         BigDecimal step8 = term1b.multiply(term2);
         BigDecimal result = step8.divide(term3, 6,RoundingMode.UP);
         result = result.setScale(0, RoundingMode.UP);
-        int months = result.intValue();
 
-        return months;
+        return result.intValue();
     }
 
     public String printMonths(int months){
