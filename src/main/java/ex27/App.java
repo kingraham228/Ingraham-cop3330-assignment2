@@ -7,14 +7,8 @@ package ex27;
 public class App {
     public static void main(String[] args){
         Validator user = new Validator();
-        user.setFirstName();
-        user.setLastName();
-        user.setZip();
-        user.setEmployeeID();
-        user.validateFirstName();
-        user.validateLastName();
-        user.validateZip();
-        user.validateEmployeeID();
+        user.setInput();
+        user.validateInput();
         String validationResult = user.printValidationReport();
         System.out.println(validationResult);
 

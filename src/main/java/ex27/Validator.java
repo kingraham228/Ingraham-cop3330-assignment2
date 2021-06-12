@@ -101,6 +101,19 @@ public class Validator {
         return errorCode[3];
     }
 
+    public void validateInput(){
+        validateFirstName();
+        validateLastName();
+        validateZip();
+        validateEmployeeID();
+    }
+
+    public void setInput(){
+        setFirstName();
+        setLastName();
+        setZip();
+        setEmployeeID();
+    }
     public String printValidationReport(){
         if(Arrays.stream(errorCode).sum() == 0){
             return "There were no errors found.";
