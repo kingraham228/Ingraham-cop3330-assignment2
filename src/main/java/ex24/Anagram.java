@@ -24,7 +24,6 @@ public class Anagram {
     private static final Scanner input = new Scanner(System.in);
     private String [] words = new String[2];
     private int wordCount;
-    private String printResult;
     private String error = "";
 
     public void setWords(){
@@ -55,6 +54,7 @@ public class Anagram {
     public String getLengthError(){ return "These strings are not the same length.\n";}
 
     public String getPrintResult(boolean test) {
+        String printResult;
         if (test){
             printResult = "\""+words[0]+"\" and \""+words[1]+"\" are anagrams.";
         }else {
@@ -87,14 +87,7 @@ public class Anagram {
             Arrays.sort(checkWord1);
             Arrays.sort(checkWord2);
 
-            boolean test = Arrays.equals(checkWord1, checkWord2);
-            if(test){
-
-                return true;
-            }else{
-                return false;
-            }
-
+            return Arrays.equals(checkWord1, checkWord2);
         }
 
     }
@@ -106,11 +99,7 @@ public class Anagram {
 
         char [] stringLength1 = copyArray[0].toCharArray();
         char [] stringLength2 = copyArray[1].toCharArray();
-        if (stringLength1.length == stringLength2.length){
-            return true;
-        }else {
-            return false;
-        }
+        return stringLength1.length == stringLength2.length;
 
     }
 
