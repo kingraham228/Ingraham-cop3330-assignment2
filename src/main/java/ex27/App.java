@@ -11,6 +11,12 @@ public class App {
         user.setLastName();
         user.setZip();
         user.setEmployeeID();
+        user.validateFirstName();
+        user.validateLastName();
+        user.validateZip();
+        user.validateEmployeeID();
+        String validationResult = user.printValidationReport();
+        System.out.println(validationResult);
 
     }
 

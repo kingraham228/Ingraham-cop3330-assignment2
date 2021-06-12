@@ -4,13 +4,6 @@ package ex27;
  *  Copyright 2021 Kate Ingraham
  */
 
-//enter first name
-//enter last name
-//enter employee ID
-//enter zip code
-//validate first name and last names at lease 2 characters long and filled in
-//employee ID forma AA-1234
-//zip code must be a number
 
 import java.util.Scanner;
 import java.util.Arrays;
@@ -35,14 +28,16 @@ public class Validator {
     }
 
     public void setEmployeeID() {
+        System.out.println("Enter the employee ID: ");
         this.employeeID = input.nextLine();
     }
 
     public void setZip() {
+        System.out.println("Enter the ZIP code: ");
         this.zip = input.nextLine();
     }
 
-    public void validateFirstName(){
+    public int validateFirstName(){
         if(firstName.isBlank() || firstName.isEmpty()){
             errorCode[0] = 1;
         }else{
@@ -52,9 +47,10 @@ public class Validator {
                 errorCode[0] = 0;
             }
         }
+        return errorCode[0];
     }
 
-    public void validateLastName(){
+    public int validateLastName(){
         if(lastName.isBlank() || lastName.isEmpty()){
             errorCode[1] = 3;
         }else{
@@ -64,9 +60,10 @@ public class Validator {
                 errorCode[1] = 0;
             }
         }
+        return errorCode[1];
     }
 
-    public void validateZip(){
+    public int validateZip(){
         String copyZip = zip;
         copyZip = removeWhiteSpace(copyZip);
         char [] zipCheck = copyZip.toCharArray();
@@ -78,9 +75,10 @@ public class Validator {
         if (zip.length()<5){
             errorCode[2] = 5;
         }
+        return errorCode[2];
     }
 
-    public void validateEmployeeID(){
+    public int validateEmployeeID(){
         if (employeeID.length() != 7){
             errorCode[3] = 6;
         } else {
@@ -94,19 +92,18 @@ public class Validator {
                     if (!Character.isDigit(idCheck[3])||!Character.isDigit(idCheck[4])||!Character.isDigit(idCheck[5])||!Character.isDigit(idCheck[6])){
                         errorCode[3] = 6;
                     }else{
-                        errorCode[3] = 6;
+                        errorCode[3] = 0;
                     }
                 }
             }
 
         }
-
-
+        return errorCode[3];
     }
 
     public String printValidationReport(){
         if(Arrays.stream(errorCode).sum() == 0){
-            return String.format("There were no errors found.");
+            return "There were no errors found.";
         }else{
             String error1 = "The first name must be filled in.\n";
             String error2 = "The first name must be at least 2 characters long.\n";
@@ -127,7 +124,7 @@ public class Validator {
                 };
                 errors[count] = arrayAdd;
             }
-            return String.format(errors[0]+errors[1]+errors[2]+errors[3]+errors[4]);
+            return errors[0] + errors[1] + errors[2] + errors[3];
         }
 
     }
@@ -136,6 +133,13 @@ public class Validator {
     public String removeWhiteSpace(String s){
         s = s.replaceAll("\\s", "");
         return s;
+    }
+
+    public void testSetParameters(String fn, String ln, String z, String eid){
+        firstName = fn;
+        lastName = ln;
+        zip = z;
+        employeeID = eid;
     }
 
 }
