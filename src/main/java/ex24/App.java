@@ -10,7 +10,11 @@ public class App {
 
         System.out.println(userAnagram.getInstructions());
 
-        userAnagram.getWords();
+       userAnagram.setWords();
+       String [] userWords = userAnagram.getWords();
+       boolean test = userAnagram.isAnagram(userWords);
+       String result = userAnagram.getPrintResult(test);
+       System.out.println(result);
 
 
     }
