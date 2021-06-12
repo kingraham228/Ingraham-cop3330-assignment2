@@ -69,8 +69,12 @@ public class Anagram {
             return false;
         }else {
 
-            char[] checkWord1 = anaTest[0].toCharArray();
-            char[] checkWord2 = anaTest[1].toCharArray();
+            String [] copyArray = new String[2];
+            copyArray[0] = removeWhiteSpace(anaTest[0]);
+            copyArray[1] = removeWhiteSpace(anaTest[1]);
+
+            char[] checkWord1 = copyArray[0].toCharArray();
+            char[] checkWord2 = copyArray[1].toCharArray();
 
             for (int n = 0; n < checkWord1.length; n++) {
                 checkWord1[n] = Character.toLowerCase(checkWord1[n]);
@@ -82,6 +86,7 @@ public class Anagram {
 
             Arrays.sort(checkWord1);
             Arrays.sort(checkWord2);
+
             boolean test = Arrays.equals(checkWord1, checkWord2);
             if(test){
 
@@ -95,8 +100,12 @@ public class Anagram {
     }
 
     public boolean isSameLength(String [] lengthTest){
-        char [] stringLength1 = lengthTest[0].toCharArray();
-        char [] stringLength2 = lengthTest[1].toCharArray();
+        String [] copyArray = new String[2];
+        copyArray[0] = removeWhiteSpace(lengthTest[0]);
+        copyArray[1] = removeWhiteSpace(lengthTest[1]);
+
+        char [] stringLength1 = copyArray[0].toCharArray();
+        char [] stringLength2 = copyArray[1].toCharArray();
         if (stringLength1.length == stringLength2.length){
             return true;
         }else {
@@ -110,4 +119,9 @@ public class Anagram {
         words[1] = b;
     }
 
+    //remove white space from strings. Code modified from https://www.geeksforgeeks.org/how-to-remove-all-white-spaces-from-a-string-in-java/
+    public String removeWhiteSpace(String s){
+        s = s.replaceAll("\\s", "");
+        return s;
+    }
 }

@@ -145,4 +145,49 @@ class AnagramTest {
         assertEquals(expected, actual);
 
     }
+
+    @Test
+    @DisplayName("Separate word test")
+    void isAnagram_test10() {
+        Anagram testAna = new Anagram();
+        String testWord1 = "catdog";
+        String testWord2 = "Dog cat";
+        testAna.testSetWords(testWord1, testWord2);
+        boolean test = testAna.isAnagram(testAna.getWords());
+        String actual = testAna.getPrintResult(test);
+        String expected = "\""+testWord1+"\" and \""+testWord2+"\" are anagrams.";
+
+        assertEquals(expected, actual);
+
+    }
+
+    @Test
+    @DisplayName("Separate word multi-word test")
+    void isAnagram_test11() {
+        Anagram testAna = new Anagram();
+        String testWord1 = "Race Cars Big Pool ";
+        String testWord2 = "Carraces poolbig";
+        testAna.testSetWords(testWord1, testWord2);
+        boolean test = testAna.isAnagram(testAna.getWords());
+        String actual = testAna.getPrintResult(test);
+        String expected = "\""+testWord1+"\" and \""+testWord2+"\" are anagrams.";
+
+        assertEquals(expected, actual);
+
+    }
+
+    @Test
+    @DisplayName("Harry Potter Test")
+    void isAnagram_test12() {
+        Anagram testAna = new Anagram();
+        String testWord1 = "Tom Marvolo Riddle";
+        String testWord2 = "I am Lord Voldemort";
+        testAna.testSetWords(testWord1, testWord2);
+        boolean test = testAna.isAnagram(testAna.getWords());
+        String actual = testAna.getPrintResult(test);
+        String expected = "\""+testWord1+"\" and \""+testWord2+"\" are anagrams.";
+
+        assertEquals(expected, actual);
+
+    }
 }
