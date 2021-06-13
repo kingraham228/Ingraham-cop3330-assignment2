@@ -19,9 +19,8 @@ class PaymentCalculatorTest {
         PaymentCalculator testCalc = new PaymentCalculator();
         testCalc.setTestParameters(5000.00,12.00,100.00);
 
-
-        String actual = testCalc.calculateMonthsUntilPaidOff();
-        String expected = "70";
+        String actual = testCalc.printMonths(testCalc.calculateMonthsUntilPaidOff());
+        String expected = "It will take you 70 months to pay off this card.";
 
         assertEquals(expected, actual);
     }
