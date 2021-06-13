@@ -18,12 +18,13 @@ class PaymentCalculatorTest {
     void calculateMonthsUntilPaidOff() {
         PaymentCalculator testCalc = new PaymentCalculator();
         testCalc.setTestParameters(5000.00,12.00,100.00);
-        int testM = testCalc.calculateMonthsUntilPaidOff();
-        int actual = testM;
-        int expected = 70;
 
-        assertEquals(expected, actual, .00001);
+
+        String actual = testCalc.calculateMonthsUntilPaidOff();
+        String expected = "70";
+
+        assertEquals(expected, actual);
     }
+*/
 
- */
 }

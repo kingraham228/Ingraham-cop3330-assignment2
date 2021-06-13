@@ -10,7 +10,7 @@ public class App {
         userPayment.setCardBalance();
         userPayment.setApr();
         userPayment.setMonthlyPayment();
-        int myMonths = userPayment.calculateMonthsUntilPaidOff();
+        String myMonths = userPayment.calculateMonthsUntilPaidOff();
         System.out.println(userPayment.printMonths(myMonths));
     }
 

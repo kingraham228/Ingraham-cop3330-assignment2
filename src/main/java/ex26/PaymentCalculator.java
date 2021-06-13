@@ -66,7 +66,7 @@ public class PaymentCalculator {
         monthlyPayment = BigDecimal.valueOf(inputMonthlyPayment);
     }
 
-    public int calculateMonthsUntilPaidOff(){
+    public String calculateMonthsUntilPaidOff(){
 
         BigDecimal i = apr.divide(BigDecimal.valueOf(365),6,RoundingMode.UP);
         BigDecimal step1 = i.add(BigDecimal.ONE);
@@ -84,11 +84,12 @@ public class PaymentCalculator {
         BigDecimal result = step8.divide(term3, 6,RoundingMode.UP);
         result = result.setScale(0, RoundingMode.UP);
 
-        return result.intValue();
+        return result.toString();
+
     }
 
-    public String printMonths(int months){
-        return String.format("It will take you %d months to pay off this card.", months);
+    public String printMonths(String months){
+        return String.format("It will take you %s months to pay off this card.", months);
     }
 
     public void setTestParameters(double cb, double pAPR, double mp){
