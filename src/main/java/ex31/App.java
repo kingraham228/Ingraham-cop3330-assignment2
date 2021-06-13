@@ -11,6 +11,7 @@ public class App {
         HeartRate userHeartRate = new HeartRate();
         userHeartRate.setAge();
         userHeartRate.setResting();
+        userHeartRate.printHeartTable();
     }
 
 }

@@ -5,10 +5,8 @@ package ex31;
  */
 
 
-// calculated target heart rate 55 - 95%
-//use loop for percentages
-//Generate table with results
-
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.Scanner;
 
 public class HeartRate {
@@ -61,12 +59,37 @@ public class HeartRate {
         double calcStep2 = calcStep1-resting;
         double calcStep3 = calcStep2*intensity;
         double targetHeartRate = calcStep3 + resting;
-
-        return String.format("%.0f",targetHeartRate);
+        BigDecimal thr = BigDecimal.valueOf(targetHeartRate);
+        thr = thr.setScale(0, RoundingMode.HALF_UP);
+        return String.format("%.0f",thr);
     }
 
     public void printHeartTable(){
+        BigDecimal rhr = BigDecimal.valueOf(resting);
+        rhr = rhr.setScale(0,RoundingMode.HALF_UP);
+        String printResting = rhr.toString();
+        BigDecimal a = BigDecimal.valueOf(age);
+        a = a.setScale(0,RoundingMode.HALF_UP);
+        String printAge = a.toString();
+        String [] heading = {"Intensity", "Rate"};
+        double intensity = .55;
+        double percentI;
+
+        System.out.printf("Resting Pulse: %s\t\tAge: %s%n%n",printResting,printAge);
+        System.out.printf("%-15s |  %-15s %n", heading[0],heading[1]);
+        System.out.println("----------------|-----------------");
+        do{
+            percentI = intensity*100;
+            String printa = String.format("%.0f%%",percentI);
+            String printb = String.format("%s bpm",calculateHeartRate(age,resting,intensity));
+            System.out.printf("%-15s |  %-15s %n", printa,printb);
+            intensity = intensity+.05;
+        }while(intensity < 1);
+
+
+
 
     }
+
 
 }
