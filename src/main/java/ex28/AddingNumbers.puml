@@ -1,0 +1,16 @@
+@startuml
+start
+:User enters number 1;
+:Number 1 added to array;
+:User enters number 2;
+:Number 2 added to array;
+:User enters number 3;
+:Number 3 added to array;
+:User enters number 4;
+:Number 4 added to array;
+:User enters number 5;
+:Number 5 added to array;
+:Sum array;
+:Return total;
+end
+@enduml
