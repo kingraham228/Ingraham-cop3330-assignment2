@@ -45,4 +45,5 @@ class GuessGameTest {
         assertTrue(actual <= 1000);
 
     }
+
 }
