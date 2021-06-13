@@ -21,5 +21,27 @@ class HeartRateTest {
 
     }
 
+    @Test
+    @DisplayName("Range test high")
+    void calculateHeartRate_hightest() {
+        HeartRate test = new HeartRate();
+        String actual = test.calculateHeartRate(98,107,.55);
+        String expected = "115";
+
+        assertEquals(expected,actual);
+
+    }
+
+    @Test
+    @DisplayName("Range test low")
+    void calculateHeartRate_lowtest() {
+        HeartRate test = new HeartRate();
+        String actual = test.calculateHeartRate(.7,.001,.55);
+        String expected = "121";
+
+        assertEquals(expected,actual);
+
+    }
+
 
 }
