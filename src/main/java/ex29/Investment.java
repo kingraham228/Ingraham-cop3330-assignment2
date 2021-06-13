@@ -4,9 +4,6 @@ package ex29;
  *  Copyright 2021 Kate Ingraham
  */
 
-
-//caluclate how many years to double
-
 import java.util.Scanner;
 
 public class Investment {
