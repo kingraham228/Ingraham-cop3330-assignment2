@@ -7,8 +7,7 @@ package ex33;
 import java.util.Random;
 import java.util.Scanner;
 
-//prompts for a question and then displays yes/no/maybe/ask again later
-//chosen randomly using a pseudo random number generator
+
 public class MagicBall {
     private static final Scanner input = new Scanner(System.in);
     private static final String [] answers = {"Yes.", "No.", "Maybe.", "Ask again later."};

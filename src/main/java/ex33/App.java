@@ -5,7 +5,10 @@ package ex33;
  */
 public class App {
     public static void main(String [] args){
-
+        MagicBall userBall = new MagicBall();
+        userBall.setQuestion();
+        String answer = userBall.giveAnswer();
+        System.out.println(answer);
     }
 
 }

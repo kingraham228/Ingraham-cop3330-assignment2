@@ -11,7 +11,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class MagicBallTest {
 
     @Test
-    @DisplayName("Test random generator")
+    @DisplayName("Test random generator for errors and even distribution")
     void giveAnswer_testGenerator() {
         MagicBall test = new MagicBall();
         int testCount;
@@ -20,7 +20,7 @@ class MagicBallTest {
         int maybeCount = 0;
         int laterCount = 0;
         int errorCount = 0;
-        for (testCount = 0; testCount<100; testCount++){
+        for (testCount = 0; testCount<1000; testCount++){
             String answTest = test.giveAnswer();
             if(answTest.equals("Yes.")){
                 yesCount++;
