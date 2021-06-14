@@ -6,6 +6,7 @@ package ex37;
 
 import java.security.SecureRandom;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
 
@@ -16,17 +17,14 @@ public class PasswordGenerator {
     "o","p","q","r","s","t","u","v","w","x","y","z"};
     private static final String [] arrayDigits = {"0","1","2","3","4","5","6","7","8","9"};
     private static final String [] arraySpecials = {"~","+","!","@","#","$","%","^","&","*","?","-"};
-    private List<String> letters = Arrays.asList(arrayLetters);
-    private List<String> digits = Arrays.asList(arrayDigits);
-    private List<String> specials = Arrays.asList(arraySpecials);
-    private int pLength;
-    private int numSpecial;
-    private int numNum;
+    private final List<String> letters = Arrays.asList(arrayLetters);
+    private final List<String> digits = Arrays.asList(arrayDigits);
+    private final List<String> specials = Arrays.asList(arraySpecials);
     private int numLetters;
 
 
-
     public int getPLength(){
+        int pLength;
         do {
             System.out.println("What's the minimum length?");
             while (!input.hasNextInt()) {
@@ -45,6 +43,7 @@ public class PasswordGenerator {
         return pLength;
     }
     public int getNumSpecial(){
+        int numSpecial;
         do {
             System.out.println("How many special characters?");
             while (!input.hasNextInt()) {
@@ -64,6 +63,7 @@ public class PasswordGenerator {
     }
 
     public int getNumNum(){
+        int numNum;
         do {
             System.out.println("How many numbers?");
             while (!input.hasNextInt()) {
@@ -82,12 +82,17 @@ public class PasswordGenerator {
         return numNum;
     }
 
-    //Generate password using those inputs
-//ensure that password is random
-
+    //Note: the StringBuffer loop is from tutorialspoint
+    //https://www.tutorialspoint.com/how-convert-an-array-of-strings-in-a-single-string-in-java
     public String generatePassword(int minLength, int specChar, int nums){
-        String password = "";
-        return password;
+        int flength = getPassFinalLength(minLength,specChar,nums);
+        String [] buildP = buildPArray(flength,numLetters,specChar,nums);
+        String [] mixedP = mixArray(buildP);
+        StringBuilder sb = new StringBuilder();
+        for (String s : mixedP) {
+            sb.append(s);
+        }
+        return sb.toString();
     }
 
     public String[] buildPArray(int finLength, int nLetters, int specChar, int nums){
@@ -109,8 +114,6 @@ public class PasswordGenerator {
             bPassword[icount] = digits.get(selectRan);
             icount++;
         }
-        System.out.println("icount: "+icount);
-        System.out.println("array size: "+bPassword.length);
         return bPassword;
     }
 
@@ -129,5 +132,11 @@ public class PasswordGenerator {
 
     public int getNumLetters() {
         return numLetters;
+    }
+
+    public String[] mixArray(String [] sortedP){
+        List<String> mix = Arrays.asList(sortedP);
+        Collections.shuffle(mix);
+        return mix.toArray(new String[sortedP.length]);
     }
 }

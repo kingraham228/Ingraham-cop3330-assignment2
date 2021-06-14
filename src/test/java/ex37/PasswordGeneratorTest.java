@@ -9,7 +9,8 @@ import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 class PasswordGeneratorTest {
 
@@ -80,5 +81,76 @@ class PasswordGeneratorTest {
         int expected = 4;
 
         assertEquals(expected,actual);
+    }
+
+    @Test
+    @DisplayName("Mix up Test")
+    void mixArray() {
+        PasswordGenerator test = new PasswordGenerator();
+        int minl = 8;
+        int sc = 2;
+        int nn = 2;
+        int flength = test.getPassFinalLength(minl,sc,nn);
+        int let = test.getNumLetters();
+        String[] testPW = test.buildPArray(flength,let,sc,nn);
+        System.out.println(Arrays.toString(testPW));
+        String [] mixedP = test.mixArray(testPW);
+        System.out.println(Arrays.toString(mixedP));
+        int expected = 8;
+        int actual = mixedP.length;
+
+        assertEquals(expected,actual);
+    }
+
+    @Test
+    @DisplayName("Password Generation Build Test")
+    void generatePassword_buildTest() {
+        PasswordGenerator test = new PasswordGenerator();
+        int minl = 8;
+        int sc = 2;
+        int nn = 2;
+        String testPW = test.generatePassword(minl,sc,nn);
+        System.out.println(testPW);
+
+        assertNotNull(testPW);
+    }
+
+    @Test
+    @DisplayName("Password Generation Long Test")
+    void generatePassword_longTest() {
+        PasswordGenerator test = new PasswordGenerator();
+        int minl = 8;
+        int sc = 5;
+        int nn = 5;
+        String testPW = test.generatePassword(minl,sc,nn);
+        System.out.println(testPW);
+
+        assertNotNull(testPW);
+    }
+
+    @Test
+    @DisplayName("Tiny minlength Test")
+    void generatePassword_tinyMinTest() {
+        PasswordGenerator test = new PasswordGenerator();
+        int minl = 1;
+        int sc = 5;
+        int nn = 5;
+        String testPW = test.generatePassword(minl,sc,nn);
+        System.out.println(testPW);
+
+        assertNotNull(testPW);
+    }
+
+    @Test
+    @DisplayName("Tiny everything Test")
+    void generatePassword_tinyEveryTest() {
+        PasswordGenerator test = new PasswordGenerator();
+        int minl = 1;
+        int sc = 1;
+        int nn = 1;
+        String testPW = test.generatePassword(minl,sc,nn);
+        System.out.println(testPW);
+
+        assertNotNull(testPW);
     }
 }

@@ -6,11 +6,11 @@ package ex37;
 public class App {
     public static void main(String[] args){
         PasswordGenerator userP = new PasswordGenerator();
-        userP.getPLength();
-        userP.getNumSpecial();
-        userP.getNumNum();
-
-
+        int length = userP.getPLength();
+        int specialChars = userP.getNumSpecial();
+        int numbers = userP.getNumNum();
+        String uPassword = userP.generatePassword(length,specialChars,numbers);
+        System.out.println("Your password is "+uPassword);
     }
 
 }
