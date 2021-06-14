@@ -9,7 +9,6 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 
-//randomly select a winner /RNG
 public class Lottery {
     private static final Scanner input = new Scanner(System.in);
     ArrayList<String> nameList = new ArrayList<>();
