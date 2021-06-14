@@ -1,5 +1,8 @@
 package ex36;
-
+/*
+ *  UCF COP3330 Summer 2021 Assignment 2 Solution
+ *  Copyright 2021 Kate Ingraham
+ */
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 

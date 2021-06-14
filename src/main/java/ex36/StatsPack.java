@@ -8,12 +8,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Scanner;
 
-//Promt for response times from a website in milliseconds
-//Stop with "done"
-//print average
-//print min time
-//print max time
-//print standard dev
+
 public class StatsPack {
     private static final Scanner input = new Scanner(System.in);
     ArrayList<Double> inputList = new ArrayList<>();
@@ -53,9 +48,6 @@ public class StatsPack {
 
     }
 
-    public ArrayList<Double> getInputList() {
-        return inputList;
-    }
 
     public void instructions(){
         System.out.println("Enter in response times from a website in milliseconds.");
