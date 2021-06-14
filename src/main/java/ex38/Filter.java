@@ -7,25 +7,68 @@ package ex38;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-//convert input to an array
-//make function filterEvenNumbers, returns array
-//print out a new list containing only even numbers
+
+
 public class Filter {
     private static final Scanner input = new Scanner(System.in);
     private String userInput;
 
-    public void setUserInput(){
-            System.out.println("Enter a a list of numbers, separated by spaces: ");
-            userInput = input.nextLine();
+    public void setUserInput() {
+        System.out.println("Enter a a list of numbers, separated by spaces: ");
+        userInput = input.nextLine();
     }
 
     public String getUserInput() {
         return userInput;
     }
 
-    public String [] stringToStringArray(String userStr){
-       return userStr.split(" ");
+    public String[] stringToStringArray(String userStr) {
+        return userStr.split(" ");
     }
 
+    public double[] removeNonNums(String[] split) {
+        ArrayList<Double> doubleNumbers = new ArrayList<>();
+        for (String s : split) {
+
+            try {
+                double convert = Double.parseDouble(s);
+                doubleNumbers.add(convert);
+            } catch (NumberFormatException ignored) {
+
+            }
+
+        }
+        double[] onlyNums = new double[doubleNumbers.size()];
+        for (int count = 0; count < (onlyNums.length); count++) {
+            onlyNums[count] = doubleNumbers.get(count);
+        }
+        return onlyNums;
+    }
+
+
+
+    public double [] filterEvenNumbers(double [] numArrray){
+        ArrayList<Double> filterEven = new ArrayList<>();
+        for (double v : numArrray) {
+            double modCheck = v % 2;
+            if (modCheck == 0) {
+                filterEven.add(v);
+            }
+        }
+
+        double [] evenNums = new double[filterEven.size()];
+        for (int count=0; count< evenNums.length; count++){
+            evenNums[count] = filterEven.get(count);
+        }
+        return evenNums;
+    }
+
+    public void printEvenNumbers(double [] arrayNums){
+        System.out.print("The even numbers are ");
+        for (double arrayNum : arrayNums) {
+            System.out.printf("%.0f ", arrayNum);
+        }
+        System.out.printf("%n");
+    }
 
 }
