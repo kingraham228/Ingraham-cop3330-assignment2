@@ -8,10 +8,10 @@ package ex39;
 import java.util.*;
 
 public class RecordMap {
-    private Map<String,String> employeeName = new TreeMap<>();
-    private Map<String,String> empPosition = new TreeMap<>();
-    private Map<String, String> empSepDate = new TreeMap<>();
-    private ArrayList<Map<String,String>> employeeRecords = new ArrayList<>();
+    private final Map<String,String> employeeName = new TreeMap<>();
+    private final Map<String,String> empPosition = new TreeMap<>();
+    private final Map<String, String> empSepDate = new TreeMap<>();
+    private final ArrayList<Map<String,String>> employeeRecords = new ArrayList<>();
 
     public void fillNameMap(){
         employeeName.put("Johnson","John");
@@ -49,7 +49,7 @@ public class RecordMap {
 
     public String basicPrintList(){
         createListofMaps(employeeName,empPosition,empSepDate);
-        return String.format(String.valueOf(employeeRecords));
+        return String.valueOf(employeeRecords);
     }
 
 
