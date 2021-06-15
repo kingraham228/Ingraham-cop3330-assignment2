@@ -14,7 +14,7 @@ public class Filter {
     private String userInput;
 
     public void setUserInput() {
-        System.out.println("Enter a list of numbers, separated by spaces: ");
+        System.out.println("Enter a list of whole numbers, separated by spaces: ");
         userInput = input.nextLine();
     }
 
@@ -64,7 +64,7 @@ public class Filter {
     }
 
     public void printEvenNumbers(double [] arrayNums){
-        System.out.print("The even numbers are ");
+        System.out.print("The even whole numbers are ");
         for (double arrayNum : arrayNums) {
             System.out.printf("%.0f ", arrayNum);
         }
