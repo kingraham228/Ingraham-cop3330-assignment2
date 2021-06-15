@@ -14,7 +14,7 @@ public class Filter {
     private String userInput;
 
     public void setUserInput() {
-        System.out.println("Enter a a list of numbers, separated by spaces: ");
+        System.out.println("Enter a list of numbers, separated by spaces: ");
         userInput = input.nextLine();
     }
 
